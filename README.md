@@ -2,6 +2,10 @@
 
 detection의 박스와 segmentation의 마스크를 보여 주는 서비스
 
+> **과제 제출 문서:** [SUBMISSION.md](SUBMISSION.md) (실행 위치·방법·도구 선택 이유·범위) · [docs/REVIEW.md](docs/REVIEW.md) (원본 대조 기록)
+
+![서비스 화면 (cafe.jpg)](docs/screenshots/service_cafe.png)
+
 ## 기능
 
 - 사진을 올리면 **yolo26n**(객체 탐지)과 **yolo26n-seg**(인스턴스 분할)로 분석
@@ -26,6 +30,10 @@ python -m venv .venv
 
 브라우저에서 http://127.0.0.1:7860 을 엽니다. 사진을 끌어 놓고 **분석하기**를 누르거나, **샘플 bus.jpg로 실행**을 누릅니다.
 
+- 브라우저 없이 처리하려면 `app.py --input bus.jpg cafe.jpg`를 실행합니다.
+- 저장된 결과를 다시 보려면 `http://127.0.0.1:7860/?run=<실행 폴더 이름>`을 엽니다.
+- 원본 대조용 크롭을 만들려면 `review_crops.py <실행 폴더> <원본 사진>`을 실행합니다.
+
 ## 결과 폴더 구조
 
 분석할 때마다 `outputs/yolo/<날짜-시간>_<파일명>/` 폴더가 생깁니다.
@@ -45,5 +53,6 @@ manifest.json                 입력 파일, 모델·패키지 버전, 실행 �
 
 | 파일 | 설명 |
 |---|---|
+| `review_crops.py` | 결과 박스·마스크 위치를 원본에서 잘라 대조용 크롭과 해시 검증 결과를 저장 |
 | `image_detect.py` | 사진 한 장을 두 모델로 분석해 `results/`에 저장 |
 | `webcam_detect.py` | 웹캠 실시간 탐지 (`--model yolo26n-seg.pt`로 분할도 가능, `q`로 종료) |

@@ -1,0 +1,2 @@
+# 결과 폴더는 바이트 그대로 보관 (manifest.json 의 SHA-256 과 일치하도록 줄바꿈 변환 금지)
+outputs/** -text

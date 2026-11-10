@@ -1,0 +1,745 @@
+{
+  "original": "cafe.jpg",
+  "original_sha256": "a029f76ec47217cda1c0836cf8db6be3b7390d31e0f6543504cb08f7116cda9b",
+  "input_matches_original": true,
+  "items": [
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.25,
+      "id": 0,
+      "class_name": "bowl",
+      "score": 0.8788,
+      "box_xyxy": [
+        2040.0,
+        2786.2,
+        2758.8,
+        3280.1
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.25_000_bowl.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.25,
+      "id": 1,
+      "class_name": "chair",
+      "score": 0.7624,
+      "box_xyxy": [
+        1.4,
+        483.8,
+        587.9,
+        1372.5
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.25_001_chair.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.25,
+      "id": 2,
+      "class_name": "dog",
+      "score": 0.7498,
+      "box_xyxy": [
+        1754.2,
+        1876.5,
+        2571.2,
+        2580.7
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.25_002_dog.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.25,
+      "id": 3,
+      "class_name": "dog",
+      "score": 0.7248,
+      "box_xyxy": [
+        1714.5,
+        953.0,
+        2268.9,
+        1408.4
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.25_003_dog.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.25,
+      "id": 4,
+      "class_name": "person",
+      "score": 0.6782,
+      "box_xyxy": [
+        1270.4,
+        1.8,
+        1956.8,
+        1288.8
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.25_004_person.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.25,
+      "id": 5,
+      "class_name": "chair",
+      "score": 0.6727,
+      "box_xyxy": [
+        3064.4,
+        739.2,
+        3724.2,
+        1463.0
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.25_005_chair.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.25,
+      "id": 6,
+      "class_name": "chair",
+      "score": 0.6135,
+      "box_xyxy": [
+        2362.1,
+        459.4,
+        2933.5,
+        1354.3
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.25_006_chair.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.25,
+      "id": 7,
+      "class_name": "chair",
+      "score": 0.5095,
+      "box_xyxy": [
+        633.4,
+        617.9,
+        1256.2,
+        1458.8
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.25_007_chair.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.25,
+      "id": 8,
+      "class_name": "bowl",
+      "score": 0.49,
+      "box_xyxy": [
+        1976.5,
+        4633.2,
+        3938.9,
+        5709.5
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.25_008_bowl.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.25,
+      "id": 9,
+      "class_name": "chair",
+      "score": 0.4418,
+      "box_xyxy": [
+        1622.7,
+        479.8,
+        2121.4,
+        1194.2
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.25_009_chair.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.25,
+      "id": 10,
+      "class_name": "chair",
+      "score": 0.3338,
+      "box_xyxy": [
+        1506.7,
+        465.8,
+        2115.0,
+        1284.3
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.25_010_chair.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.25,
+      "id": 11,
+      "class_name": "potted plant",
+      "score": 0.3003,
+      "box_xyxy": [
+        2566.8,
+        92.3,
+        2925.5,
+        523.8
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.25_011_potted_plant.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.25,
+      "id": 12,
+      "class_name": "book",
+      "score": 0.2914,
+      "box_xyxy": [
+        3925.6,
+        3139.1,
+        4282.2,
+        3828.2
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.25_012_book.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.25,
+      "id": 13,
+      "class_name": "chair",
+      "score": 0.2838,
+      "box_xyxy": [
+        3539.7,
+        410.6,
+        4060.5,
+        1138.8
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.25_013_chair.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.5,
+      "id": 0,
+      "class_name": "bowl",
+      "score": 0.8788,
+      "box_xyxy": [
+        2040.0,
+        2786.2,
+        2758.8,
+        3280.1
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.50_000_bowl.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.5,
+      "id": 1,
+      "class_name": "chair",
+      "score": 0.7624,
+      "box_xyxy": [
+        1.4,
+        483.8,
+        587.9,
+        1372.5
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.50_001_chair.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.5,
+      "id": 2,
+      "class_name": "dog",
+      "score": 0.7498,
+      "box_xyxy": [
+        1754.2,
+        1876.5,
+        2571.2,
+        2580.7
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.50_002_dog.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.5,
+      "id": 3,
+      "class_name": "dog",
+      "score": 0.7248,
+      "box_xyxy": [
+        1714.5,
+        953.0,
+        2268.9,
+        1408.4
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.50_003_dog.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.5,
+      "id": 4,
+      "class_name": "person",
+      "score": 0.6782,
+      "box_xyxy": [
+        1270.4,
+        1.8,
+        1956.8,
+        1288.8
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.50_004_person.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.5,
+      "id": 5,
+      "class_name": "chair",
+      "score": 0.6727,
+      "box_xyxy": [
+        3064.4,
+        739.2,
+        3724.2,
+        1463.0
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.50_005_chair.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.5,
+      "id": 6,
+      "class_name": "chair",
+      "score": 0.6135,
+      "box_xyxy": [
+        2362.1,
+        459.4,
+        2933.5,
+        1354.3
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.50_006_chair.jpg"
+    },
+    {
+      "model": "yolo26n.pt",
+      "conf": 0.5,
+      "id": 7,
+      "class_name": "chair",
+      "score": 0.5095,
+      "box_xyxy": [
+        633.4,
+        617.9,
+        1256.2,
+        1458.8
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n_conf0.50_007_chair.jpg"
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 0,
+      "class_name": "bowl",
+      "score": 0.9004,
+      "box_xyxy": [
+        2044.4,
+        2779.5,
+        2753.6,
+        3281.4
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_000_bowl.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_000_bowl_mask.jpg",
+      "mask_area_px": 276579
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 1,
+      "class_name": "dog",
+      "score": 0.7943,
+      "box_xyxy": [
+        1716.8,
+        955.2,
+        2269.9,
+        1416.7
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_001_dog.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_001_dog_mask.jpg",
+      "mask_area_px": 160601
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 2,
+      "class_name": "dog",
+      "score": 0.7633,
+      "box_xyxy": [
+        1743.2,
+        1865.9,
+        2563.0,
+        2585.1
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_002_dog.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_002_dog_mask.jpg",
+      "mask_area_px": 430886
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 3,
+      "class_name": "person",
+      "score": 0.6952,
+      "box_xyxy": [
+        1279.0,
+        0.7,
+        1962.7,
+        1294.6
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_003_person.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_003_person_mask.jpg",
+      "mask_area_px": 467858
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 4,
+      "class_name": "chair",
+      "score": 0.5974,
+      "box_xyxy": [
+        3075.3,
+        775.6,
+        3721.2,
+        1494.8
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_004_chair.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_004_chair_mask.jpg",
+      "mask_area_px": 214375
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 5,
+      "class_name": "chair",
+      "score": 0.5789,
+      "box_xyxy": [
+        2.8,
+        496.1,
+        666.7,
+        1346.6
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_005_chair.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_005_chair_mask.jpg",
+      "mask_area_px": 253013
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 6,
+      "class_name": "chair",
+      "score": 0.5184,
+      "box_xyxy": [
+        609.1,
+        530.6,
+        1280.7,
+        1475.2
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_006_chair.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_006_chair_mask.jpg",
+      "mask_area_px": 288401
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 7,
+      "class_name": "chair",
+      "score": 0.4385,
+      "box_xyxy": [
+        2178.0,
+        514.6,
+        2924.2,
+        1387.1
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_007_chair.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_007_chair_mask.jpg",
+      "mask_area_px": 274261
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 8,
+      "class_name": "bowl",
+      "score": 0.3795,
+      "box_xyxy": [
+        1983.0,
+        4622.0,
+        3949.2,
+        5705.7
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_008_bowl.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_008_bowl_mask.jpg",
+      "mask_area_px": 1585509
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 9,
+      "class_name": "person",
+      "score": 0.3618,
+      "box_xyxy": [
+        1092.3,
+        7.6,
+        1546.1,
+        1116.5
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_009_person.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_009_person_mask.jpg",
+      "mask_area_px": 207964
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 10,
+      "class_name": "dining table",
+      "score": 0.3587,
+      "box_xyxy": [
+        0.0,
+        2489.8,
+        4281.7,
+        5677.0
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_010_dining_table.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_010_dining_table_mask.jpg",
+      "mask_area_px": 9809758
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 11,
+      "class_name": "chair",
+      "score": 0.3418,
+      "box_xyxy": [
+        3545.0,
+        384.7,
+        4067.7,
+        1143.5
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_011_chair.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_011_chair_mask.jpg",
+      "mask_area_px": 191575
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 12,
+      "class_name": "chair",
+      "score": 0.3204,
+      "box_xyxy": [
+        1224.1,
+        444.3,
+        2056.5,
+        1289.1
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_012_chair.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_012_chair_mask.jpg",
+      "mask_area_px": 98992
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 13,
+      "class_name": "potted plant",
+      "score": 0.3163,
+      "box_xyxy": [
+        2558.1,
+        82.8,
+        2923.8,
+        535.9
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_013_potted_plant.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_013_potted_plant_mask.jpg",
+      "mask_area_px": 126656
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 14,
+      "class_name": "chair",
+      "score": 0.295,
+      "box_xyxy": [
+        1634.7,
+        472.9,
+        2137.5,
+        1111.7
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_014_chair.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_014_chair_mask.jpg",
+      "mask_area_px": 147955
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 15,
+      "class_name": "toothbrush",
+      "score": 0.2902,
+      "box_xyxy": [
+        0.7,
+        4025.9,
+        2097.3,
+        5710.2
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_015_toothbrush.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_015_toothbrush_mask.jpg",
+      "mask_area_px": 1201771
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.25,
+      "id": 16,
+      "class_name": "dining table",
+      "score": 0.258,
+      "box_xyxy": [
+        2972.8,
+        417.3,
+        3762.2,
+        678.6
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.25_016_dining_table.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.25_016_dining_table_mask.jpg",
+      "mask_area_px": 126339
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.5,
+      "id": 0,
+      "class_name": "bowl",
+      "score": 0.9004,
+      "box_xyxy": [
+        2044.4,
+        2779.5,
+        2753.6,
+        3281.4
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.50_000_bowl.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.50_000_bowl_mask.jpg",
+      "mask_area_px": 276579
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.5,
+      "id": 1,
+      "class_name": "dog",
+      "score": 0.7943,
+      "box_xyxy": [
+        1716.8,
+        955.2,
+        2269.9,
+        1416.7
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.50_001_dog.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.50_001_dog_mask.jpg",
+      "mask_area_px": 160601
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.5,
+      "id": 2,
+      "class_name": "dog",
+      "score": 0.7633,
+      "box_xyxy": [
+        1743.2,
+        1865.9,
+        2563.0,
+        2585.1
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.50_002_dog.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.50_002_dog_mask.jpg",
+      "mask_area_px": 430886
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.5,
+      "id": 3,
+      "class_name": "person",
+      "score": 0.6952,
+      "box_xyxy": [
+        1279.0,
+        0.7,
+        1962.7,
+        1294.6
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.50_003_person.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.50_003_person_mask.jpg",
+      "mask_area_px": 467858
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.5,
+      "id": 4,
+      "class_name": "chair",
+      "score": 0.5974,
+      "box_xyxy": [
+        3075.3,
+        775.6,
+        3721.2,
+        1494.8
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.50_004_chair.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.50_004_chair_mask.jpg",
+      "mask_area_px": 214375
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.5,
+      "id": 5,
+      "class_name": "chair",
+      "score": 0.5789,
+      "box_xyxy": [
+        2.8,
+        496.1,
+        666.7,
+        1346.6
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.50_005_chair.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.50_005_chair_mask.jpg",
+      "mask_area_px": 253013
+    },
+    {
+      "model": "yolo26n-seg.pt",
+      "conf": 0.5,
+      "id": 6,
+      "class_name": "chair",
+      "score": 0.5184,
+      "box_xyxy": [
+        609.1,
+        530.6,
+        1280.7,
+        1475.2
+      ],
+      "original": "cafe.jpg",
+      "crop": "review/crops/yolo26n-seg_conf0.50_006_chair.jpg",
+      "mask_crop": "review/crops/yolo26n-seg_conf0.50_006_chair_mask.jpg",
+      "mask_area_px": 288401
+    }
+  ]
+}

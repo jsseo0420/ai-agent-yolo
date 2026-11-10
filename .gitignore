@@ -6,8 +6,12 @@ __pycache__/
 # 모델 가중치 (실행 시 자동 다운로드)
 *.pt
 
-# 실행 결과
-outputs/
+# 실행 결과: 제출용 실행 2건만 저장소에 포함
+outputs/*
+!outputs/yolo/
+outputs/yolo/*
+!outputs/yolo/20261110-165607_bus/
+!outputs/yolo/20261110-165630_cafe/
 results/
 
 # Claude Code 로컬 설정

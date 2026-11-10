@@ -1,0 +1,144 @@
+{
+  "model": "yolo26n.pt",
+  "task": "detect",
+  "conf": 0.25,
+  "imgsz": 640,
+  "device": "cpu",
+  "iou": 0.7,
+  "image_size": {
+    "width": 810,
+    "height": 1080
+  },
+  "speed_ms": {
+    "preprocess": 14.4,
+    "inference": 1137.8,
+    "postprocess": 22.7
+  },
+  "num_detections": 5,
+  "detections": [
+    {
+      "id": 0,
+      "class_id": 5,
+      "class_name": "bus",
+      "score": 0.8806,
+      "box_xyxy": [
+        0.0,
+        230.5,
+        803.2,
+        750.7
+      ],
+      "box_xywh": [
+        0.0,
+        230.5,
+        803.2,
+        520.2
+      ],
+      "box_xyxyn": [
+        0.0,
+        0.21341,
+        0.9916,
+        0.69509
+      ]
+    },
+    {
+      "id": 1,
+      "class_id": 0,
+      "class_name": "person",
+      "score": 0.872,
+      "box_xyxy": [
+        48.6,
+        397.7,
+        240.3,
+        902.4
+      ],
+      "box_xywh": [
+        48.6,
+        397.7,
+        191.7,
+        504.7
+      ],
+      "box_xyxyn": [
+        0.06002,
+        0.36824,
+        0.29671,
+        0.83556
+      ]
+    },
+    {
+      "id": 2,
+      "class_id": 0,
+      "class_name": "person",
+      "score": 0.8608,
+      "box_xyxy": [
+        222.9,
+        404.8,
+        345.5,
+        861.0
+      ],
+      "box_xywh": [
+        222.9,
+        404.8,
+        122.5,
+        456.2
+      ],
+      "box_xyxyn": [
+        0.27524,
+        0.37483,
+        0.4265,
+        0.79724
+      ]
+    },
+    {
+      "id": 3,
+      "class_id": 0,
+      "class_name": "person",
+      "score": 0.8462,
+      "box_xyxy": [
+        669.6,
+        394.5,
+        809.9,
+        879.4
+      ],
+      "box_xywh": [
+        669.6,
+        394.5,
+        140.2,
+        485.0
+      ],
+      "box_xyxyn": [
+        0.82672,
+        0.36526,
+        0.99984,
+        0.81429
+      ]
+    },
+    {
+      "id": 4,
+      "class_id": 0,
+      "class_name": "person",
+      "score": 0.6562,
+      "box_xyxy": [
+        0.2,
+        553.0,
+        59.7,
+        871.3
+      ],
+      "box_xywh": [
+        0.2,
+        553.0,
+        59.5,
+        318.3
+      ],
+      "box_xyxyn": [
+        0.00026,
+        0.512,
+        0.07374,
+        0.80673
+      ]
+    }
+  ],
+  "files": {
+    "annotated": "yolo26n/conf_0.25/annotated.jpg",
+    "json": "yolo26n/conf_0.25/detections.json"
+  }
+}

@@ -337,12 +337,42 @@ def predict():
         return jsonify(error=f"{type(e).__name__}: {e}"), 500
 
 
+@app.get("/api/runs/<run_id>")
+def load_run(run_id):
+    """저장된 실행 결과를 다시 불러온다 (화면 주소: /?run=<run_id>)."""
+    run_dir = (OUT_ROOT / run_id).resolve()
+    if run_dir.parent != OUT_ROOT.resolve() or not (run_dir / "manifest.json").exists():
+        abort(404)
+    manifest = json.loads((run_dir / "manifest.json").read_text(encoding="utf-8"))
+    results = [json.loads((run_dir / o["json"]).read_text(encoding="utf-8")) for o in manifest["outputs"]]
+    return jsonify(run_id=run_id, base=f"/outputs/{run_id}/", manifest=manifest, results=results)
+
+
 @app.get("/outputs/<path:subpath>")
 def outputs(subpath):
     return send_from_directory(OUT_ROOT, subpath)
 
 
+def run_cli(paths: list[str]) -> None:
+    """브라우저 없이 사진 파일을 바로 처리한다:  python app.py --input bus.jpg cafe.jpg"""
+    for p in paths:
+        path = Path(p)
+        out = process(path.read_bytes(), path.name)
+        print(f"\n[{path}] -> {out['manifest']['execution']['run_dir']}")
+        for r in out["results"]:
+            names = ", ".join(f"{d['class_name']} {d['score']:.2f}" for d in r["detections"]) or "(없음)"
+            print(f"  {r['model']:<15} conf={r['conf']:.2f}  {r['num_detections']:>2}개  {names}")
+
+
 if __name__ == "__main__":
+    import argparse
+
+    ap = argparse.ArgumentParser(description="로컬 YOLO 서비스")
+    ap.add_argument("--input", nargs="+", metavar="IMAGE", help="웹 서버 대신 이 사진들을 처리하고 종료")
+    cli = ap.parse_args()
     OUT_ROOT.mkdir(parents=True, exist_ok=True)
+    if cli.input:
+        run_cli(cli.input)
+        sys.exit(0)
     print(f"YOLO 서비스: http://{HOST}:{PORT}  (결과 저장: {OUT_ROOT})", flush=True)
     app.run(host=HOST, port=PORT, threaded=True, debug=False)

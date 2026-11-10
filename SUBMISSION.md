@@ -141,10 +141,6 @@ outputs/yolo/20261110-165630_cafe/
   - cafe 분할 0.50은 추론 1,822ms, 전처리 208ms로 다른 실행보다 크게 느렸습니다. 원인은 조사하지 못했습니다.
   - 시간 값은 참고용이며 성능 측정이 아닙니다.
 - 분할 결과의 `detections.json`에 원본 해상도 외곽선 좌표가 들어가 파일이 큽니다(cafe 분할 conf 0.25는 약 1.7MB).
-- [webcam_detect.py](webcam_detect.py)(보조 스크립트):
-  - 처음에는 Chrome이 카메라를 쓰고 있어 프레임을 받지 못했습니다.
-  - Chrome을 닫은 뒤에는 오류 없이 실행되고 정상 종료됐습니다.
-  - 탐지 창 화면은 캡처하지 않았으므로 **이 문서로는 확인할 수 없습니다.** 제출 범위는 사진 서비스입니다.
 
 ---
 
@@ -155,6 +151,6 @@ outputs/yolo/20261110-165630_cafe/
 | [app.py](app.py) | 서비스 본체 (웹 서버, 명령줄 실행, 추론, 저장, manifest 작성) |
 | [static/index.html](static/index.html) | 업로드·결과 비교 화면 |
 | [review_crops.py](review_crops.py) | 원본 대조용 크롭·해시 검증 |
-| [image_detect.py](image_detect.py), [webcam_detect.py](webcam_detect.py) | 보조 스크립트 (사진 한 장 / 웹캠) |
+| [image_detect.py](image_detect.py) | 보조 스크립트 (사진 한 장 ) |
 | [requirements.txt](requirements.txt) | 패키지 버전 고정 |
 | [bus.jpg](bus.jpg), [cafe.jpg](cafe.jpg) | 입력 원본 |

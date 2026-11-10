@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YOLO 로컬 서비스</title>
+<link rel="icon" href="data:,">
+<style>
+  :root {
+    --bg: #f6f7f9; --panel: #ffffff; --text: #1d2330; --muted: #5d6677; --line: #dfe3ea;
+    --accent: #2f6fed; --accent-weak: #e7efff; --warn: #a15c00; --warn-bg: #fff3df;
+    --ok: #157f3b; --code: #f0f2f5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151b; --panel: #1b1f27; --text: #e6e9ef; --muted: #9aa3b2; --line: #2c323d;
+      --accent: #6d9bff; --accent-weak: #1f2b45; --warn: #ffb867; --warn-bg: #3a2a12;
+      --ok: #5fd08a; --code: #232833;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.5 "Segoe UI", "Malgun Gothic", system-ui, sans-serif; }
+  main { max-width: 1280px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  h2 { font-size: 17px; margin: 0 0 12px; }
+  h3 { font-size: 15px; margin: 0 0 8px; }
+  .muted { color: var(--muted); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 20px; }
+  .chip { background: var(--accent-weak); color: var(--accent); border-radius: 999px;
+          padding: 2px 10px; font-size: 13px; font-weight: 600; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+           padding: 16px; margin-bottom: 16px; }
+  .drop { display: block; border: 2px dashed var(--line); border-radius: 10px; padding: 24px; text-align: center;
+          cursor: pointer; transition: border-color .15s, background .15s; }
+  .drop.over { border-color: var(--accent); background: var(--accent-weak); }
+  .drop img { max-height: 160px; max-width: 100%; border-radius: 6px; display: block; margin: 0 auto 8px; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+  button { font: inherit; border-radius: 8px; padding: 8px 16px; cursor: pointer;
+           border: 1px solid var(--line); background: var(--panel); color: var(--text); }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+  button:disabled { opacity: .5; cursor: default; }
+  #status { margin-left: 4px; }
+  .err { color: #d33; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { text-align: left; padding: 4px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  th { color: var(--muted); font-weight: 600; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .scroll { overflow-x: auto; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 860px) { .cols { grid-template-columns: 1fr; } }
+  .shot { position: relative; }
+  .shot img { width: 100%; border-radius: 6px; display: block; border: 1px solid var(--line); background: #000; }
+  .tabs { display: flex; gap: 4px; margin-bottom: 6px; }
+  .tabs button { padding: 2px 10px; font-size: 12px; }
+  .tabs button.on { background: var(--accent-weak); border-color: var(--accent); color: var(--accent); }
+  .tag { display: inline-block; font-size: 11px; padding: 0 6px; border-radius: 4px;
+         background: var(--warn-bg); color: var(--warn); margin-left: 4px; }
+  tr.low td { color: var(--muted); }
+  .links a { color: var(--accent); margin-right: 12px; font-size: 13px; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; font-size: 12.5px; word-break: break-all; }
+  .diff-up { color: var(--ok); font-weight: 600; }
+  .meta { font-size: 12.5px; color: var(--muted); margin: 6px 0 8px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <h1>YOLO 로컬 서비스</h1>
+  <div class="muted">사진을 올리면 yolo26n(탐지)과 yolo26n-seg(분할)로 박스·클래스·점수·마스크를 보여 주고, conf 0.25와 0.50 결과를 나란히 비교합니다.</div>
+  <div class="chips" id="chips"></div>
+
+  <section class="panel">
+    <label class="drop" id="drop">
+      <img id="preview" hidden alt="">
+      <div id="dropText"><b>사진을 여기에 끌어 놓거나 클릭해서 선택</b><br><span class="muted">JPG · PNG · WEBP 등</span></div>
+      <input type="file" id="file" accept="image/*" hidden>
+    </label>
+    <div class="row">
+      <button class="primary" id="run" disabled>분석하기</button>
+      <button id="sample">샘플 bus.jpg로 실행</button>
+      <span id="status" class="muted"></span>
+    </div>
+  </section>
+
+  <section id="out" hidden>
+    <div class="panel">
+      <h2>실행 정보</h2>
+      <div id="runInfo"></div>
+    </div>
+    <div class="panel">
+      <h2>conf 0.25 vs 0.50 비교</h2>
+      <div class="scroll"><table id="summary"></table></div>
+      <div class="meta">0.25에서만 잡힌 객체(점수 0.50 미만)는 아래 표에서 <span class="tag">0.50 미만</span>으로 표시됩니다.</div>
+    </div>
+    <div id="models"></div>
+  </section>
+</main>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+let picked = null;
+
+fetch("/api/info").then((r) => r.json()).then((info) => {
+  const s = info.settings;
+  const chips = [`imgsz=${s.imgsz}`, `device=${s.device}`, `conf=${s.confs.map((c) => c.toFixed(2)).join(" / ")}`,
+    `iou=${s.iou}`, ...Object.entries(info.models).map(([k, v]) => `${k} · ${v.task}`), `ultralytics ${info.versions.ultralytics}`];
+  $("#chips").innerHTML = chips.map((c) => `<span class="chip">${esc(c)}</span>`).join("");
+  $("#sample").hidden = !info.sample_available;
+});
+
+const drop = $("#drop"), file = $("#file");
+function pick(f) {
+  if (!f) return;
+  picked = f;
+  $("#preview").src = URL.createObjectURL(f);
+  $("#preview").hidden = false;
+  $("#dropText").innerHTML = `<b>${esc(f.name)}</b> <span class="muted">(${(f.size / 1024).toFixed(0)} KB) · 다른 사진을 고르려면 클릭</span>`;
+  $("#run").disabled = false;
+}
+file.addEventListener("change", () => pick(file.files[0]));
+["dragenter", "dragover"].forEach((e) => drop.addEventListener(e, (ev) => { ev.preventDefault(); drop.classList.add("over"); }));
+["dragleave", "drop"].forEach((e) => drop.addEventListener(e, (ev) => { ev.preventDefault(); drop.classList.remove("over"); }));
+drop.addEventListener("drop", (ev) => pick(ev.dataTransfer.files[0]));
+
+$("#run").addEventListener("click", () => { const fd = new FormData(); fd.append("image", picked); send(fd); });
+$("#sample").addEventListener("click", () => { const fd = new FormData(); fd.append("sample", "1"); send(fd); });
+
+async function send(fd) {
+  $("#run").disabled = $("#sample").disabled = true;
+  $("#status").className = "muted";
+  $("#status").textContent = "분석 중... (모델 2개 × conf 2개)";
+  const t0 = performance.now();
+  try {
+    const res = await fetch("/api/predict", { method: "POST", body: fd });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || res.statusText);
+    render(data);
+    $("#status").textContent = `완료 · ${((performance.now() - t0) / 1000).toFixed(1)}초`;
+  } catch (e) {
+    $("#status").className = "err";
+    $("#status").textContent = "오류: " + e.message;
+  } finally {
+    $("#run").disabled = !picked;
+    $("#sample").disabled = false;
+  }
+}
+
+function render(data) {
+  const m = data.manifest, base = data.base;
+  const url = (p) => base + p.split("/").map(encodeURIComponent).join("/") + `?t=${Date.now()}`;
+  $("#out").hidden = false;
+
+  $("#runInfo").innerHTML = `
+    <div class="scroll"><table>
+      <tr><th>입력</th><td>${esc(m.input.original_filename)} · ${m.input.width}×${m.input.height}px · ${(m.input.bytes / 1024).toFixed(0)} KB${m.input.exif_rotation_applied ? " · EXIF 회전 적용" : ""}</td></tr>
+      <tr><th>저장 위치</th><td><code>${esc(m.execution.run_dir)}</code></td></tr>
+      <tr><th>설정</th><td>imgsz=${m.settings.imgsz}, device=${m.settings.device}, conf=${m.settings.confs.join(" / ")}, iou=${m.settings.iou}, retina_masks=${m.settings.retina_masks}</td></tr>
+      <tr><th>버전</th><td>${Object.entries(m.versions).map(([k, v]) => `${esc(k)} ${esc(v)}`).join(" · ")}</td></tr>
+      <tr><th>소요 시간</th><td>${m.duration_s}초</td></tr>
+    </table></div>
+    <div class="links" style="margin-top:8px">
+      <a href="${url("manifest.json")}" target="_blank">manifest.json</a>
+      <a href="${url("code/app.py")}" target="_blank">code/app.py</a>
+      <a href="${url(m.input.saved_as)}" target="_blank">입력 사진</a>
+    </div>`;
+
+  // 비교 표: 클래스별 개수
+  const res = data.results;
+  const classes = [...new Set(res.flatMap((r) => r.detections.map((d) => d.class_name)))].sort();
+  const count = (r, c) => r.detections.filter((d) => d.class_name === c).length;
+  const head = res.map((r) => `<th class="num">${esc(r.model.replace(".pt", ""))}<br>conf ${r.conf.toFixed(2)}</th>`).join("");
+  const rows = classes.map((c) => `<tr><td>${esc(c)}</td>${res.map((r) => `<td class="num">${count(r, c)}</td>`).join("")}</tr>`).join("");
+  const total = `<tr><th>합계</th>${res.map((r) => `<th class="num">${r.num_detections}</th>`).join("")}</tr>`;
+  const speed = `<tr><td class="muted">추론 시간(ms)</td>${res.map((r) => `<td class="num muted">${r.speed_ms.inference}</td>`).join("")}</tr>`;
+  $("#summary").innerHTML = `<tr><th>클래스</th>${head}</tr>${rows || ""}${total}${speed}`;
+
+  // 모델별 좌우 비교
+  const byModel = {};
+  res.forEach((r) => (byModel[r.model] ??= []).push(r));
+  $("#models").innerHTML = Object.entries(byModel).map(([model, rs]) => {
+    const isSeg = rs[0].task === "segment";
+    return `<div class="panel">
+      <h2>${esc(model)} <span class="muted" style="font-weight:400">· ${isSeg ? "인스턴스 분할 (박스 + 마스크)" : "객체 탐지 (박스)"}</span></h2>
+      <div class="cols">${rs.map((r) => column(r, isSeg, url)).join("")}</div>
+    </div>`;
+  }).join("");
+
+  document.querySelectorAll(".tabs button").forEach((b) => b.addEventListener("click", () => {
+    const box = b.closest(".shot");
+    box.querySelectorAll(".tabs button").forEach((x) => x.classList.toggle("on", x === b));
+    box.querySelector("img").src = b.dataset.src;
+    box.querySelector("a.full").href = b.dataset.src;
+  }));
+  $("#out").scrollIntoView({ behavior: "smooth" });
+}
+
+function column(r, isSeg, url) {
+  const f = r.files;
+  const tabs = isSeg && f.instance_color
+    ? `<div class="tabs"><button class="on" data-src="${url(f.annotated)}">결과 이미지</button><button data-src="${url(f.instance_color)}">마스크만</button></div>` : "";
+  const rows = r.detections.map((d) => {
+    const low = r.conf < 0.5 && d.score < 0.5;
+    return `<tr class="${low ? "low" : ""}">
+      <td class="num">${d.id}</td>
+      <td>${esc(d.class_name)}${low ? '<span class="tag">0.50 미만</span>' : ""}</td>
+      <td class="num">${d.score.toFixed(2)}</td>
+      <td class="num">${d.box_xyxy.map((v) => v.toFixed(0)).join(", ")}</td>
+      ${isSeg ? `<td class="num">${d.mask ? (d.mask.area_ratio * 100).toFixed(1) + "%" : "-"}</td>` : ""}
+    </tr>`;
+  }).join("");
+  return `<div>
+    <h3>conf ${r.conf.toFixed(2)} · ${r.num_detections}개</h3>
+    <div class="shot">${tabs}<a class="full" href="${url(f.annotated)}" target="_blank"><img src="${url(f.annotated)}" alt="conf ${r.conf} 결과" loading="lazy"></a></div>
+    <div class="meta">전처리 ${r.speed_ms.preprocess} · 추론 ${r.speed_ms.inference} · 후처리 ${r.speed_ms.postprocess} ms</div>
+    <div class="scroll"><table>
+      <tr><th class="num">#</th><th>클래스</th><th class="num">점수</th><th class="num">박스 x1, y1, x2, y2</th>${isSeg ? '<th class="num">마스크 면적</th>' : ""}</tr>
+      ${rows || `<tr><td colspan="5" class="muted">탐지된 객체 없음</td></tr>`}
+    </table></div>
+    <div class="links" style="margin-top:6px"><a href="${url(f.json)}" target="_blank">detections.json</a>${f.instance_map ? `<a href="${url(f.instance_map)}" target="_blank">instances.png</a>` : ""}</div>
+  </div>`;
+}
+</script>
+</body>
+</html>

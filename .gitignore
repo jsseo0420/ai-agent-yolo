@@ -1,0 +1,14 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# 모델 가중치 (실행 시 자동 다운로드)
+*.pt
+
+# 실행 결과
+outputs/
+results/
+
+# Claude Code 로컬 설정
+.claude/settings.local.json

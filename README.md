@@ -55,4 +55,3 @@ manifest.json                 입력 파일, 모델·패키지 버전, 실행 �
 |---|---|
 | `review_crops.py` | 결과 박스·마스크 위치를 원본에서 잘라 대조용 크롭과 해시 검증 결과를 저장 |
 | `image_detect.py` | 사진 한 장을 두 모델로 분석해 `results/`에 저장 |
-| `webcam_detect.py` | 웹캠 실시간 탐지 (`--model yolo26n-seg.pt`로 분할도 가능, `q`로 종료) |
